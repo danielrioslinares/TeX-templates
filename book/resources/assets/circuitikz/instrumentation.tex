@@ -1,0 +1,178 @@
+
+
+
+
+%%______[ OP AMPS WITH DIFFERENT REFERENCE START ]______%%
+%% -------------------------------------------------------------------------- %%
+
+% Op amp with inverting input as start
+\pgfdeclareshape{op amp ref n}{
+	\anchor{center}{\pgfpointorigin}
+	\savedanchor\-{\pgfpoint{0cm}{0cm}}
+	\anchor{-}{\-}
+	\savedanchor\+{\pgfpoint{0cm}{-1cm}}
+	\anchor{+}{\+}
+	\savedanchor\out{\pgfpoint{2.5cm}{-0.5cm}}
+	\anchor{out}{\out}
+	\savedanchor\vcc{\pgfpoint{1.33cm}{0cm}}
+	\anchor{vcc}{\vcc}
+	\savedanchor\vee{\pgfpoint{1.33cm}{-1cm}}
+	\anchor{vee}{\vee}
+	\foregroundpath{
+		% Triangle
+		\pgfpathmoveto{\pgfpoint{0.5cm}{0cm}}
+		\pgfpathlineto{\pgfpoint{0.5cm}{-1cm}}
+		\pgfpathlineto{\pgfpoint{0.5cm}{-1.5cm}}
+		\pgfpathlineto{\pgfpoint{2.16cm}{-0.5cm}}
+		\pgfpathlineto{\pgfpoint{0.5cm}{0.5cm}}
+		\pgfpathlineto{\pgfpoint{0.5cm}{0cm}}
+		% Inverting input line
+		\pgfpathmoveto{\pgfpoint{0.5cm}{0cm}}
+		\pgfpathlineto{\pgfpoint{0cm}{0cm}}
+		% Non-inverting input line
+		\pgfpathmoveto{\pgfpoint{0.5cm}{-1cm}}
+		\pgfpathlineto{\pgfpoint{0cm}{-1cm}}
+		% Output line
+		\pgfpathmoveto{\pgfpoint{2.16cm}{-0.5cm}}
+		\pgfpathlineto{\pgfpoint{2.5cm}{-0.5cm}}
+		% Draw inverting label
+		\pgfpathmoveto{\pgfpoint{0.65cm}{0cm}}
+		\pgfpathlineto{\pgfpoint{0.9cm}{0cm}}
+		% Draw inverting label
+		\pgfpathmoveto{\pgfpoint{0.65cm}{-1cm}}
+		\pgfpathlineto{\pgfpoint{0.9cm}{-1cm}}
+		\pgfpathmoveto{\pgfpoint{0.775cm}{-1.125cm}}
+		\pgfpathlineto{\pgfpoint{0.775cm}{-0.875cm}}
+		% Draw
+		\pgfusepath{draw}
+	}
+}
+
+% Op amp with non-inverting input as start
+\pgfdeclareshape{op amp ref p}{
+	\anchor{center}{\pgfpointorigin}
+	\savedanchor\-{\pgfpoint{0cm}{-1cm}}
+	\anchor{-}{\-}
+	\savedanchor\+{\pgfpoint{0cm}{0cm}}
+	\anchor{+}{\+}
+	\savedanchor\out{\pgfpoint{2.5cm}{-0.5cm}}
+	\anchor{out}{\out}
+	\savedanchor\vcc{\pgfpoint{1.33cm}{0cm}}
+	\anchor{vcc}{\vcc}
+	\savedanchor\vee{\pgfpoint{1.33cm}{-1cm}}
+	\anchor{vee}{\vee}
+	\foregroundpath{
+		% Triangle
+		\pgfpathmoveto{\pgfpoint{0.5cm}{0cm}}
+		\pgfpathlineto{\pgfpoint{0.5cm}{-1cm}}
+		\pgfpathlineto{\pgfpoint{0.5cm}{-1.5cm}}
+		\pgfpathlineto{\pgfpoint{2.16cm}{-0.5cm}}
+		\pgfpathlineto{\pgfpoint{0.5cm}{0.5cm}}
+		\pgfpathlineto{\pgfpoint{0.5cm}{0cm}}
+		% Inverting input line
+		\pgfpathmoveto{\pgfpoint{0.5cm}{0cm}}
+		\pgfpathlineto{\pgfpoint{0cm}{0cm}}
+		% Non-inverting input line
+		\pgfpathmoveto{\pgfpoint{0.5cm}{-1cm}}
+		\pgfpathlineto{\pgfpoint{0cm}{-1cm}}
+		% Output line
+		\pgfpathmoveto{\pgfpoint{2.16cm}{-0.5cm}}
+		\pgfpathlineto{\pgfpoint{2.5cm}{-0.5cm}}
+		% Draw inverting label
+		\pgfpathmoveto{\pgfpoint{0.65cm}{-1cm}}
+		\pgfpathlineto{\pgfpoint{0.9cm}{-1cm}}
+		% Draw inverting label
+		\pgfpathmoveto{\pgfpoint{0.65cm}{0cm}}
+		\pgfpathlineto{\pgfpoint{0.9cm}{0cm}}
+		\pgfpathmoveto{\pgfpoint{0.775cm}{-0.125cm}}
+		\pgfpathlineto{\pgfpoint{0.775cm}{0.125cm}}
+		% Draw
+		\pgfusepath{draw}
+	}
+} 
+
+% Op amp with output as start with non-inverting up
+\pgfdeclareshape{op amp ref out p}{
+	\anchor{center}{\pgfpointorigin}
+	\savedanchor\-{\pgfpoint{-2.5cm}{-0.5cm}}
+	\anchor{-}{\-}
+	\savedanchor\+{\pgfpoint{-2.5cm}{0.5cm}}
+	\anchor{+}{\+}
+	\savedanchor\out{\pgfpoint{0cm}{0cm}}
+	\anchor{out}{\out}
+	\savedanchor\vcc{\pgfpoint{-1.17cm}{0.5cm}}
+	\anchor{vcc}{\vcc}
+	\savedanchor\vee{\pgfpoint{-1.17cm}{-0.5cm}}
+	\anchor{vee}{\vee}
+	\foregroundpath{
+		% Triangle
+		\pgfpathmoveto{\pgfpoint{-2cm}{0.5cm}}
+		\pgfpathlineto{\pgfpoint{-2cm}{-0.5cm}}
+		\pgfpathlineto{\pgfpoint{-2cm}{-1cm}}
+		\pgfpathlineto{\pgfpoint{-0.34cm}{0cm}}
+		\pgfpathlineto{\pgfpoint{-2cm}{1cm}}
+		\pgfpathlineto{\pgfpoint{-2cm}{0.5cm}}
+		% Inverting input line
+		\pgfpathmoveto{\pgfpoint{-2cm}{0.5cm}}
+		\pgfpathlineto{\pgfpoint{-2.5cm}{0.5cm}}
+		% Non-inverting input line
+		\pgfpathmoveto{\pgfpoint{-2cm}{-0.5cm}}
+		\pgfpathlineto{\pgfpoint{-2.5cm}{-0.5cm}}
+		% Output line
+		\pgfpathmoveto{\pgfpoint{-0.34cm}{0cm}}
+		\pgfpathlineto{\pgfpoint{0cm}{0cm}}
+		% Draw inverting label
+		\pgfpathmoveto{\pgfpoint{-1.85cm}{-0.5cm}}
+		\pgfpathlineto{\pgfpoint{-1.6cm}{-0.5cm}}
+		% Draw inverting label
+		\pgfpathmoveto{\pgfpoint{-1.85cm}{0.5cm}}
+		\pgfpathlineto{\pgfpoint{-1.6cm}{0.5cm}}
+		\pgfpathmoveto{\pgfpoint{-1.725cm}{0.375cm}}
+		\pgfpathlineto{\pgfpoint{-1.725cm}{0.625cm}}
+		% Draw
+		\pgfusepath{draw}
+	}
+}
+
+% Op amp with output as start with inverting up
+\pgfdeclareshape{op amp ref out n}{
+	\anchor{center}{\pgfpointorigin}
+	\savedanchor\-{\pgfpoint{-2.5cm}{-0.5cm}}
+	\anchor{-}{\-}
+	\savedanchor\+{\pgfpoint{-2.5cm}{0.5cm}}
+	\anchor{+}{\+}
+	\savedanchor\out{\pgfpoint{0cm}{0cm}}
+	\anchor{out}{\out}
+	\savedanchor\vcc{\pgfpoint{-1.17cm}{0.5cm}}
+	\anchor{vcc}{\vcc}
+	\savedanchor\vee{\pgfpoint{-1.17cm}{-0.5cm}}
+	\anchor{vee}{\vee}
+	\foregroundpath{
+		% Triangle
+		\pgfpathmoveto{\pgfpoint{-2cm}{0.5cm}}
+		\pgfpathlineto{\pgfpoint{-2cm}{-0.5cm}}
+		\pgfpathlineto{\pgfpoint{-2cm}{-1cm}}
+		\pgfpathlineto{\pgfpoint{-0.34cm}{0cm}}
+		\pgfpathlineto{\pgfpoint{-2cm}{1cm}}
+		\pgfpathlineto{\pgfpoint{-2cm}{0.5cm}}
+		% Inverting input line
+		\pgfpathmoveto{\pgfpoint{-2cm}{0.5cm}}
+		\pgfpathlineto{\pgfpoint{-2.5cm}{0.5cm}}
+		% Non-inverting input line
+		\pgfpathmoveto{\pgfpoint{-2cm}{-0.5cm}}
+		\pgfpathlineto{\pgfpoint{-2.5cm}{-0.5cm}}
+		% Output line
+		\pgfpathmoveto{\pgfpoint{-0.34cm}{0cm}}
+		\pgfpathlineto{\pgfpoint{0cm}{0cm}}
+		% Draw inverting label
+		\pgfpathmoveto{\pgfpoint{-1.85cm}{0.5cm}}
+		\pgfpathlineto{\pgfpoint{-1.6cm}{0.5cm}}
+		% Draw inverting label
+		\pgfpathmoveto{\pgfpoint{-1.85cm}{-0.5cm}}
+		\pgfpathlineto{\pgfpoint{-1.6cm}{-0.5cm}}
+		\pgfpathmoveto{\pgfpoint{-1.725cm}{-0.625cm}}
+		\pgfpathlineto{\pgfpoint{-1.725cm}{-0.375cm}}
+		% Draw
+		\pgfusepath{draw}
+	}
+} 

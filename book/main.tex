@@ -1,0 +1,263 @@
+%% ========================================================================== %%
+%% Title								LaTeX article template
+%% ========================================================================== %%
+%% File								main.tex
+%%
+%% Authors							Daniel Ríos Linares
+%%
+%% Date								August 25, 2015 - June 14, 2018
+%%
+%% Description
+%% -------------------------------------------------------------------------- %%
+%%									Fancy book template with publishing purpose
+%%
+%% ========================================================================== %%
+
+
+%%______[ PREAMBLE ]______%%
+%% -------------------------------------------------------------------------- %%
+
+% Document preferences
+\documentclass[11pt,openright,a4paper,english]{book} % swap book with report if you want one page style
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry} % 1 inch margins
+
+% Language formatting put [<language>] if you want other rather than english
+
+% Document properties
+\title{A beautiful TeX template for the perfectionist}
+\author{Daniel R\'ios Linares}
+\date{April 7, 2018}
+
+% Include custom header file
+\input{resources/header.tex}
+
+% Begin document
+\begin{document}
+
+%%______[ COVER, TOC... ]______%%
+%% -------------------------------------------------------------------------- %%
+
+% Initially empty style
+\pagestyle{empty}
+
+% Cover page
+\coverpage{Department (for example University of...)}% Department
+	{Subdepartment (for example Faculty of...)} % Subdepartment
+	{resources/images/portrait-logo.pdf} % Logo
+	{\runningtitle} % Title
+	{Subtitle (main title, for example A review of...) \\~\\ Subsubtitle (thesis of...)} % Subtitle
+	{Date goes here} % Date
+	{\runningauthor} % Author(s)
+	{resources/images/portrait-background.pdf}{0.5} % Background and its opacity
+
+% Authorship
+\cleardoublepage
+\addtocontents{toc}{\vskip-6pt\par\noindent\protect\hfill\par}
+\addcontentsline{toc}{chapter}{Authorship}
+\thispagestyle{empty}
+
+~\vspace{2cm}
+
+\begin{center}
+{\LARGE{"\textsc{Title goes here}"}} \\
+\end{center}
+
+\vspace{3cm}
+
+\noindent D. Daniel Ríos Linares \\ 
+
+\noindent I authorize the fair use of this template only for those who seek the appealing to the eye of their readers. \\
+
+\noindent Signed. Daniel Ríos Linares, \hfill Granada, September 6, 2019 \\
+
+\begin{center}
+\includegraphics[width = 1in]{resources/images/signature.pdf} 
+\end{center}
+
+
+% Acknowledgements
+\cleardoublepage
+\acknowledgements{
+\indent Acknowledgements to stackoverflow and all the good and bad examples of people in my life.
+}
+
+% Quote
+\cleardoublepage
+~\vfill
+\begin{flushright}
+"\textit{Science is fun} \\
+\textit{when you know the secret}" \\
+\textit{Daniel Ríos Linares}
+\end{flushright}
+\vfill ~
+
+
+% Keywords and summary
+\cleardoublepage
+\summary{
+TeX, template, cool.
+}{
+\indent Bla bla bla, lorem ipsum bla bla bla.
+}
+
+% Now it's time to set fancy style
+\pagestyle{fancy}
+
+% Table of contents
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+
+% Start of the document
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+%%______[ START DOCUMENT ]______%%
+%% -------------------------------------------------------------------------- %%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter I : Introduction %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction}
+
+\section{Need some help over here}
+
+Hi, I am Daniel and this is my TeX template. \\
+
+If you need help you can contact me via Telegram \textsf{@riosL} (more desirable) or sending me an email to \textsf{riv@hotmail.es} starting with the subject \textsc{[TeX Template] Issue with...} \\
+
+\section{Hello World}
+
+If you have to modify a field in the template just find for the text you want to change in the \textsc{main.tex} file. Do not delete a file called \textsc{resources/header.tex} or the \textsc{resources/assets}, it's there for some reason! Bibliography is modified directly from the file \textsc{resources/bibliography.tex} follow the examples or make your own one. Images are stored inside \textsc{resources/images} you should create folders inside as a catalog of the different chapters/sections. Data (raw data specially for those who plot graphics) is stored inside \textsc{resources/data}.
+
+\section{Check out cool stuff you can do}
+
+Plots, cool huh?
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			physics,
+			title = {},
+			xlabel = {$\lambda$ (\SI{}{\nano\meter})},
+			ylabel = {$n_{ph}$ (\SI{}{\watt\cdot\meter^{-2}\micro\meter^{-1}})},
+			restrict x to domain=0:2500,
+			width = 0.7*\textwidth, height = 0.4*\textwidth,
+			legend style={at={(1,1)},anchor=north west},
+			xtick = {0,250,500,750,1000,1250,1500,1750,2000,2250,2500},
+			]
+			\addplot table {resources/data/sample-data.dat};
+			\addlegendentry{AM0};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Referencia spectrum ASTM G-173-03 (ISO 9845-1, 1992)}
+\end{figure}
+
+
+Source code for programmers, cool huh?
+
+\begin{sourcecode}
+\centering
+\begin{lstlisting}[language = Python]
+material = {'name' : 'GaAs'}
+\end{lstlisting}
+\small {(a) \texttt{p.py} - made in Python}
+\begin{lstlisting}[language = C]
+static PyObject *
+create_a_new_dict(PyObject *self, PyObject *args) {
+
+	PyObject *p_dict;
+	
+	p_dict = PyDict_New();
+	
+	PyDict_SetItem(p_dict, PyUnicode_FromString("name"),
+		PyUnicode_FromString("GaAs"));
+		
+	return p_dict;
+
+}
+\end{lstlisting}
+\small {(b) \texttt{f.f90} - made in CPython}
+\caption{CPython API examples}
+\label{src:example_creation_of_dict_in_C_API}
+\end{sourcecode}
+
+\section{Tweaks}
+
+For language you have to go to \textsc{resources/header.tex} and change things like "Figure" over "Figura" or "Src" over "Código Fuente". Sorry :3
+
+\section{You can also make it!}
+
+Check out some examples of pdfs made with this template:
+\begin{itemize}
+\item Bachelor's degree final Thesis made by me, the author \\ \url{https://drive.google.com/open?id=10hjvBQ6CMQ1LT_o2a-sV4_vW-6zey3BU}
+\end{itemize}
+
+
+\section{Known bugs :( yeah...I said that}
+
+In the TOC there are multiple Bibligraphy sections but it's false, just...wait for finishing the pdf and then use a tool like Adobe Creator XI to delete it manually...I am sorry :(
+
+
+
+
+
+
+
+
+
+
+%%______[ APPENDIXES ]______%%
+%% -------------------------------------------------------------------------- %%
+
+% \appendix
+
+
+
+
+
+
+
+
+
+
+
+%%______[ LISTS OF FLOATS ]______%%
+%% -------------------------------------------------------------------------- %%
+
+% List of tables
+\cleardoublepage
+\listoftables
+
+% List of figures
+\cleardoublepage
+\listoffigures
+
+% List of source codes
+\cleardoublepage
+\listofsourcecodes
+
+%%______[ BIBLIOGRAPHY ]______%%
+%% -------------------------------------------------------------------------- %%
+
+\cleardoublepage
+\listofreferences
+\input{resources/bibliography.tex}
+
+
+
+
+
+
+
+
+
+% End of the document
+\end{document}

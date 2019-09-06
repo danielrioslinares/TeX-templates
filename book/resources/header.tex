@@ -1,0 +1,576 @@
+%% ========================================================================== %%
+%% Title							LaTeX article header
+%% ========================================================================== %%
+%% File								header.tex
+%%
+%% Authors							Daniel Ríos Linares
+%%
+%% Date								March 9, 2018
+%%
+%% Description
+%% -------------------------------------------------------------------------- %%
+%%									Fancy book template with publishing purpose
+%%
+%% ========================================================================== %%
+
+
+%%______[ USEPACKAGE STATEMENTS ]______%%
+%% -------------------------------------------------------------------------- %%
+
+% Graphics, plots and figures
+\usepackage{graphicx}															% \in­clude­graph­ics CMD
+\usepackage{float}																% Floating objects
+\usepackage{tikz}																% TikZ support
+	\usetikzlibrary{arrows,shapes,positioning}
+	\usetikzlibrary{decorations.pathmorphing}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{shapes.multipart}
+		\tikzset{every text node part/.style={align=center}}
+	\usetikzlibrary{intersections}
+	\usetikzlibrary{quotes,angles}
+	\usetikzlibrary{positioning}
+	\usetikzlibrary{patterns}
+	\usetikzlibrary{circuits}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{shapes}
+	\usetikzlibrary{trees}
+	\usetikzlibrary{babel}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{fit}
+	\usetikzlibrary{3d}
+\usepackage[american,siunitx]{circuitikz}										% Circuit drawings
+\usepackage{pgfgantt}
+\usepackage{pgfplots}
+
+% Tables
+\usepackage{multirow}															% Multirow in tabular
+\usepackage{tabularx}															% Defines an en­vi­ron­ment tab­u­larx with X des­ig­na­tor (para­graph col­umn)
+\usepackage{booktabs}															% Table wizard
+\usepackage{ltablex}																% tab­u­larx + longtable
+
+% References
+\usepackage[numbers, sort&compress]{natbib}
+
+% Text formatting
+\usepackage[hidelinks]{hyperref}													% Cross-ref­er­enc­ing com­mands (TIP: hidelinks argument for red frame)
+\usepackage{glossaries}															% Glossaries
+	\makeglossaries
+\usepackage[bottom]{footmisc}													% Type­set­ting of foot­notes (at bottom)
+\usepackage[utf8]{inputenc}														% UTF-8 encoding
+\usepackage{xcolor,color}														% Fore­ground (text, rules, etc.) and back­ground colour man­age­ment
+\usepackage{colortbl}
+\usepackage{indentfirst}															% first paragraph indent
+\usepackage[super]{nth}															% \nth{} CMD 1st, 2nd...
+\usepackage{mathtools}															% Math tools
+\usepackage{blindtext}															% Dummy text
+\usepackage{enumitem}															% Control of list en­vi­ron­ments: enu­mer­ate, item­ize and description
+\usepackage{multicol}															% Adds multicols environment that displays text until 10 columns
+\usepackage{etoolbox}															% Tool­box of pro­gram­ming fa­cil­i­ties
+\usepackage{setspace}															% Setstretch{n} increase multiline paragraph separation
+\usepackage{fancyhdr}															% Header and footer customisation text display
+\usepackage{titling}																% \theauthor, \thedate \thetitle CMDs
+\usepackage{relsize}																% Math larger symbols
+\usepackage{physics}																% Physics symbols
+\usepackage{framed}																% Framed, shaded and leftbar environments
+\usepackage{babel}																% Language formatting
+\usepackage{array}
+	\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}m{#1}}
+
+% Lists
+\usepackage{listings}															% Type­set pro­grams (pro­gram­ming code) within LaTeX
+\usepackage{tocloft}																% Creation of listings
+\setlength{\cftfignumwidth}{3.5em}
+
+
+% Fonts
+\usepackage{palatino}															% Different font of LaTeX, the classic is the \usepackage{cm-super/type1ec}
+\usepackage{mathrsfs}															% Vectorial fonts in math mode
+
+% Math & physics
+\usepackage{amsfonts, amsmath, amssymb, latexsym, textcomp, gensymb, mathtools}	% American Mathematical Society (AMS) fonts and math symbols
+\usepackage[version=4]{mhchem}													% Chemical formulation
+\usepackage{siunitx}																% Physics units
+\usepackage{cancel}																% Defines \xcancel{<math mode>} that cancels terms on equations
+\usepackage{esint}																% \varoiint command
+\usepackage{breqn}																% Multi-line equation (auto)
+
+% PDF tools
+\usepackage{pdfpages}															% Multi-page PDF insert
+
+% References
+\usepackage[labelfont = bf, justification=centering, margin=2cm]{caption}			% Customisation of the cap­tions in float­ing en­vi­ron­ments
+\usepackage[labelfont = md, justification=centering, margin=0.5cm]{subcaption}		% Subfigure support
+\usepackage{titlesec,titletoc}													% Alternative section titles
+	\setcounter{tocdepth}{2} % TOC show until 1: section, 2: subsection, 3: subsubsection...
+\usepackage[nottoc,numbib]{tocbibind}											% Bibliography no TOC
+
+
+%%______[ MATH ]______%%
+
+% Imaginary unit
+\DeclareMathAlphabet{\mymathbb}{U}{BOONDOX-ds}{m}{n}
+\newcommand{\imag}{\ensuremath{\mymathbb{j}}}
+
+
+%%______[ SPACING ]______%%
+%% -------------------------------------------------------------------------- %%
+
+% Rows
+\setlength{\extrarowheight}{0.1cm}
+% General
+\renewcommand{\arraystretch}{1.05}
+% Remove rubber spacing
+\raggedbottom
+
+
+%%______[ INTERNAL DEFINITIONS ]______%%
+%% -------------------------------------------------------------------------- %%
+
+\makeatletter
+\let\runningauthor\@author
+\let\runningtitle\@title
+\let\runningdate\@date
+\makeatother
+
+
+%%______[ HEADER & FOOTER CUSTOMISATION ]______%%
+%% -------------------------------------------------------------------------- %%
+
+% Default
+\fancyfoot[RO]{\thepage} % Footer right odd: page numbering
+\fancyfoot[LE]{\thepage} % Footer left even: page numbering
+\fancyfoot[LO]{\runningauthor} % Footer left even: Author name
+\fancyfoot[RE]{\runningtitle} % Footer right even: Title of the document
+\fancyfoot[CO]{} % Footer center odd: empty
+\fancyfoot[CE]{} % Footer center even: empty
+\fancyhead[RO]{\nouppercase\leftmark} % Header right odd: Chapter
+\fancyhead[LE]{\nouppercase\rightmark} % Header left even: Sectioning
+\fancyhead[RE]{} % Header left even: empty
+\fancyhead[LO]{} % Header left even: empty
+\fancyhead[CO]{} % Header center odd: empty
+\fancyhead[CE]{} % Header center even: empty
+
+% Chapter page
+\fancypagestyle{plain}{%
+	\pagestyle{fancy}
+}
+
+% Header and footer rule widths
+\renewcommand{\headrulewidth}{0.5pt}											% Header rule width
+\renewcommand{\footrulewidth}{0.5pt}											% Footer rule width
+
+% Apply header and footer customisation
+\pagestyle{fancy}																% Apply header and footer customisation
+
+
+%%______[ TOC CUSTOMISATION (labeling format ]______%%
+%% -------------------------------------------------------------------------- %%
+
+% Part
+\titlecontents{part}%
+  [0pt]% left aligned
+  {\vspace{1cm} \hfill\bfseries\scshape\partname~}% above code
+  {\large\bfseries\scshape\partname~\thecontentslabel.~}% Number entry style
+  {\large\bfseries\scshape}% Numberless entry style
+  {\hfill\bfseries\contentspage}% Horizontal filler format
+
+% Chapter
+\titlecontents{chapter}%
+  [0pt]% left aligned
+  {}% above code
+  {\large\bfseries\scshape\chaptername~\thecontentslabel.}% Number entry style
+  {\large\bfseries\scshape}% Numberless entry style
+  {\hfill\bfseries\contentspage}% Horizontal filler format
+
+% Section
+\titlecontents{section}%
+  [1em]% left aligned
+  {}% above code
+  {\thecontentslabel{}.~}% Number entry style
+  {}% Numberless entry style
+  {\hfill\contentspage}% Horizontal filler format
+
+% Subsection
+\titlecontents{subsection}%
+  [3em]% left aligned
+  {\itshape}% above code
+  {\itshape\thecontentslabel.~}% Number entry style
+  {}% Numberless entry style
+  {\dotfill\normalfont\contentspage }% Horizontal filler format
+
+% Subsubsection
+\titlecontents{subsubsection}%
+  [4em]% left aligned
+  {}% above code
+  {\thecontentslabel.~}% Number entry style
+  {}% Numberless entry style
+  {\dotfill\contentspage }% Horizontal filler format
+
+
+%%______[ TOC CUSTOMISATION (contents format) ]______%%
+%% -------------------------------------------------------------------------- %%
+
+% Restart references
+\usepackage{remreset}
+% Remove section restart after chapter
+%	LEGACY \makeatletter\@removefromreset{section}{chapter}\makeatother
+
+% Self-made sectioning names (Babel overrides)
+\def\acknowledgementsname{Acknowledments}
+\def\summaryname{Summary}
+\def\summarykeywordsname{Keywords}
+\def\summaryabstractname{Abstract}
+\def\sourcecodename{Code}
+\def\figurename{Figure}
+\def\tablename{Table}
+
+% List of... customisation
+\def\listofsourcecodename{List of \sourcecodename}
+\def\listofreferencesname{}
+
+% Self-made floats
+\usepackage{newfloat}
+% Source code
+\DeclareFloatingEnvironment[fileext=frm,listname={\listofsourcecodename},placement={!ht},name=\sourcecodename]{sourcecode}
+\captionsetup[sourcecode]{labelfont=bf}
+
+% Chapter with rule below in table of contents
+\renewcommand{\chapter}[1]{
+	\cleardoublepage
+	\stepcounter{chapter}
+	\addcontentsline{toc}{chapter}{\chaptername~\thechapter:~#1}
+	\addtocontents{toc}{\vskip-6pt\par\noindent\hrulefill\par}
+	\def\leftmark{\chaptername~\thechapter:~#1}
+	\roundedlabel{#1}{\chaptername}
+	\indent
+}
+
+% Appendix appearing in the table of contents
+\let\oldappendix\appendix
+\renewcommand{\appendix}{
+	\cleardoublepage
+	~\\*
+	\vspace{3cm}
+	~\\*
+	\noindent
+	\begin{tikzpicture}[scale=\textwidth/2cm]
+	\node [inner sep = 0] (O) at (0,0) {};
+	\node [text width = 5in, execute at begin node={\setlength{\baselineskip}{3em}}] (F) at (0,-0.25) {\huge{\textsc{\appendixname}}};
+	\draw
+		(-0.75,0)--(+0.75,0)
+		arc (270:90:-0.25)
+		(-0.75,0)
+		arc (90:270:0.25)
+		--(0.75,-0.5)
+		;
+	\end{tikzpicture}
+	~\\*
+	\vspace{1cm}
+	~\\*
+	\renewcommand{\leftmark}{\appendixname}
+	\renewcommand{\thesection}{\Alph{section}}
+	\oldappendix
+	\addtocontents{toc}{\vskip-6pt\par\noindent\protect\hfill\par}
+	\addtocontents{toc}{\vskip-6pt\par\noindent\protect\hfill\par}
+	\addcontentsline{toc}{chapter}{\appendixname}
+	\addtocontents{toc}{\vskip-6pt\par\noindent\protect\hrulefill\par}
+}
+
+% Space between entries in table of contents
+\makeatletter
+\pretocmd{\chapter}{\addtocontents{toc}{\protect\addvspace{10\p@}}}{}{}
+\pretocmd{\section}{\addtocontents{toc}{\protect\addvspace{4\p@}}}{}{}
+\pretocmd{\subsection}{\addtocontents{toc}{\protect\addvspace{4\p@}}}{}{}
+\pretocmd{\subsubsection}{\addtocontents{toc}{\protect\addvspace{4\p@}}}{}{}
+\makeatother
+
+% Babel language integration renaming (english)
+\addto\captionsenglish{%
+	\renewcommand{\partname}{Parte}
+	\renewcommand{\chaptername}{Capítulo}
+	\renewcommand{\contentsname}{Índice}
+	\renewcommand{\acknowledgementsname}{Agradecimientos}
+	\renewcommand{\summaryname}{Resumen}
+	\renewcommand{\summarykeywordsname}{Palabras clave}
+	\renewcommand{\summaryabstractname}{Resumen}
+	\renewcommand{\sourcecodename}{Código fuente}
+	\renewcommand{\figurename}{Figura}
+	\renewcommand{\tablename}{Tabla}
+	\renewcommand{\listofsourcecodename}{Lista de código fuente}
+	\renewcommand{\listofreferencesname}{Bibliografía}
+	\renewcommand{\listfigurename}{Lista de figuras}
+	\renewcommand{\listtablename}{Lista de tablas}
+	\renewcommand{\refname}{Bibliografía}
+	\renewcommand{\appendixname}{Apéndice}
+}
+
+% Sectioning labels format
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thepage}{\arabic{page}}  
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\renewcommand{\thetable}{\arabic{section}.\arabic{table}}   
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+\renewcommand{\thesourcecode}{\arabic{section}.\arabic{sourcecode}}
+
+% List of... (modified)
+% Source code
+\let\oldlistoftables\listoftables
+\renewcommand{\listoftables}{
+	\addtocontents{toc}{\vskip-6pt\par\noindent\protect\hfill\par}
+	\renewcommand{\chaptermark}{\listtablename}
+	\renewcommand{\leftmark}{\listtablename}
+	\addcontentsline{toc}{chapter}{\listtablename}
+	\oldlistoftables
+}
+\let\oldlistoffigures\listoffigures
+\renewcommand{\listoffigures}{
+	\addtocontents{toc}{\vskip-6pt\par\noindent\protect\hfill\par}
+	\renewcommand{\rightmark}{\listfigurename}
+	\renewcommand{\leftmark}{\listfigurename}
+	\addcontentsline{toc}{chapter}{\listfigurename}
+	\oldlistoffigures
+}
+\let\oldlistofsourcecodes\listofsourcecodes
+\renewcommand{\listofsourcecodes}{
+	\renewcommand{\rightmark}{\listofsourcecodename}
+	\oldlistofsourcecodes
+}
+\newcommand{\listofreferences}{
+	\renewcommand{\chapter}[2]{\addcontentsline{toc}{chapter}{\listofreferencesname}}
+	\renewcommand{\rightmark}{\refname}
+	~\\
+	~\\
+	~\\
+	~\\
+	~\\
+	\noindent\textbf{\Huge\listofreferencesname}
+	~\\
+	~\\
+}
+
+%%______[ INTERESTING COMMANDS ]______%%
+%% -------------------------------------------------------------------------- %%
+
+% Rounded chapter label
+\newcommand{\roundedlabel}[2]{
+	\ifx\hfuzz#2\hfuzz
+	~\\*
+	\vspace{3cm}
+	~\\*
+	\noindent
+	\begin{tikzpicture}[scale=\textwidth/2cm]
+	%\node [inner sep = 1cm] (O) at (0,0) {\Large{\textsc{#2 \thechapter}}};
+	\node [text width = 5in, execute at begin node={\setlength{\baselineskip}{3em}}] (F) at (0,-0.25) {\huge{\textsc{#1}}};
+	\draw
+		(-0.75,0)--(+0.75,0)
+		arc (270:90:-0.25)
+		(-0.75,0)
+		arc (90:270:0.25)
+		--(0.75,-0.5)
+		;
+	\end{tikzpicture}
+	~\\*
+	\vspace{1cm}
+	~\\*
+	\else
+	~\\*
+	\vspace{3cm}
+	~\\*
+	\noindent
+	\begin{tikzpicture}[scale=\textwidth/2cm]
+	\node [inner sep = 1cm] (O) at (0,0) {\Large{\textsc{#2 \thechapter}}};
+	\node [text width = 5in, execute at begin node={\setlength{\baselineskip}{3em}}] (F) at (0,-0.25) {\huge{\textsc{#1}}};
+	\draw
+		(O)--(+0.75,0)
+		arc (270:90:-0.25)
+		(O)--(-0.75,0)
+		arc (90:270:0.25)
+		--(0.75,-0.5)
+		;
+	\end{tikzpicture}
+	~\\*
+	\vspace{1cm}
+	~\\*
+	\fi
+}
+
+% Create a "chapter" with empty style with acknowledgements
+\newcommand{\acknowledgements}[1]{
+	\addtocontents{toc}{\vskip-6pt\par\noindent\protect\hfill\par}
+	\addcontentsline{toc}{chapter}{\acknowledgementsname}
+	\roundedlabel{\acknowledgementsname}{}
+	\thispagestyle{empty}
+	#1
+	\cleardoublepage
+}
+
+% Create a "chapter" with empty style with keywords and summary of the contents
+\newcommand{\summary}[2]{
+	\addtocontents{toc}{\vskip-6pt\par\noindent\protect\hfill\par}
+	\addcontentsline{toc}{chapter}{\summaryname}
+	\roundedlabel{\summaryname}{}
+	\thispagestyle{empty}
+	\textbf{\summarykeywordsname:} #1 \\ \\
+	\textbf{\summaryabstractname} \\
+	~\\
+	#2
+	\cleardoublepage
+}
+
+% Main full cover page with a title <title1>, a subtitle <title2>, a subsubtitle <title3> and a <date> display
+\newcommand{\coverpage}[9] {
+\begin{titlepage}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\begin{center}
+% Background image
+\ifx\hfuzz#8\hfuzz
+\else\tikz[remember picture,overlay] \node[opacity=#9,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{#8}};
+\fi
+~\\
+[10mm]
+{\huge{#1}} \\																	% Department
+[7mm]
+{\Large{#2}} \\																	% Subdepartment
+[7mm]
+% Background image
+\ifx\hfuzz#3\hfuzz\else
+    \begin{figure}[H]
+	\centering\includegraphics[width=2in]{#3}
+	\end{figure}
+\fi
+~\\
+[2mm]
+{\centering\Huge{\textsc{#4}}} \\												% Title
+[14mm]
+{\Large{#5}} \\																	% Title 2
+[10mm]
+{\large #6} \\																	% Date
+\end{center}
+\vfill
+\begin{flushright}
+#7																				% Authors
+\end{flushright}
+\line(1,0){480} \\
+\end{titlepage}
+}
+
+
+%%______[ CAPTION FORMAT ]______%%
+%% -------------------------------------------------------------------------- %%
+
+\renewcommand{\theequation}{\Roman{chapter}-\arabic{section}.\arabic{equation}}	% Equation
+\renewcommand{\thefigure}{\Roman{chapter}-\arabic{section}.\arabic{figure}}		% Figure
+\renewcommand{\thetable}{\Roman{chapter}-\arabic{section}.\arabic{table}}						% Table
+\renewcommand{\thesourcecode}{\Roman{chapter}-\arabic{section}.\arabic{sourcecode}}
+
+
+
+%%______[ COLOURS ]______%%
+%% -------------------------------------------------------------------------- %%
+
+\definecolor{circuitcolor}{rgb}{0.05, 0.05, 0.05}
+\definecolor{shadecolor}{rgb}{1,0.8,0.3}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{textcolor}{rgb}{0, 0, 0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{ltgray}{rgb}{0.2,0.2,0.2}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{awesome}{rgb}{1.0,0.13,0.32}
+
+
+%%______[ LISTING SETTINGS ]______%%
+%% -------------------------------------------------------------------------- %%
+
+\lstloadlanguages{Perl}
+\lstset{
+	aboveskip=3mm,belowskip=3mm,													% Vertical space before and after the code
+	basicstyle={\scriptsize\ttfamily},											% Size & family properties of the font
+	breaklines=true,breakatwhitespace=true,										% Break large lines at white space
+	columns=flexible,															% Large lines splitted
+	frame=single,																% Frame around the code (tb : top & bottom, single, top, bottom...)
+	numbers=left,numberstyle=\tiny\color{gray},									% Numbers at the left (with format)
+	showstringspaces=false,														% Don't overwrite space with other symbol
+	tabsize=4,																	% Common 4 char tab size
+	xleftmargin=0.5in,xrightmargin=0.42in,										% Margin fix
+	% Colour settings (typical)
+	keywordstyle = \color{blue},
+	commentstyle = \color{dkgreen},
+	stringstyle = \color{mauve},
+	postbreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\color{dkgreen}\hookrightarrow\space}}, % Huge line to multiple single line
+}
+
+% Language: LaTeX (extended)
+\lstdefinelanguage{LaTeX}{
+	language=TeX, morekeywords={begin},
+	% TikZ internal
+	classoffset=1, % Start new class
+	morekeywords={node, draw, path, node},
+	keywordstyle=\color{awesome},
+	classoffset=0,
+	classoffset=1, % Start new class
+	morekeywords={label,caption},
+	keywordstyle=\color{orange},
+	classoffset=0,
+}
+
+
+%%______[ TikZ GENERAL SETTINGS ]______%%
+%% -------------------------------------------------------------------------- %%
+
+\tikzset{font = {\fontsize{10pt}{12}\selectfont}}
+
+
+%%______[ circuitikz custom symbols ]______%%
+%% -------------------------------------------------------------------------- %%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% PRESET %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzset{
+	ctikzST/.style = {
+		% American format
+		american voltages,
+		american resistors,
+		% General length
+		/tikz/circuitikz/bipoles/length=1.2cm,
+		% TikZ settings
+		line width = 0.75,
+		/tikz/circuitikz/bipoles/thickness=1,
+		inner sep = 0pt,
+		color = red,
+	}
+}
+
+%%______[ PGFPLOT-AXIS PLOT SETTINGS ]______%%
+%% -------------------------------------------------------------------------- %%
+
+% Physics (without box, legend right, 0.4 x 0.3, limits enlarged)
+\pgfplotsset{
+    physics/.style={
+        %axis x line = middle,
+        %axis y line = middle,
+        %enlarge x limits=0.05,
+        %enlarge y limits=0.1,
+        font = \footnotesize,
+        %yticklabel style={/pgf/number format/.cd,fixed,precision=3},
+        %every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+        %every axis y label/.style={at={(current axis.above origin)},anchor=south},
+        every axis x label/.style={at={(axis description cs:0.5,-0.1)},anchor=north},
+        %every axis y label/.style={at={(axis description cs:-0.2,.5)},rotate=90,anchor=south},
+        ylabel near ticks,
+        scaled y ticks = false,
+        legend style={at={(1,1)},anchor=north east},
+        cycle list name = auto,
+        no marks,
+        width = 0.4*\textwidth, height = 0.3*\textwidth,
+        /pgf/number format/use comma,
+        /pgf/number format/1000 sep={},
+		every plot/.append style = {line width = 3pt},
+    }
+}
+
+
+
+
