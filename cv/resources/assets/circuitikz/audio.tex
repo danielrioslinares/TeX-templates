@@ -1,0 +1,174 @@
+\pgfdeclareshape{jack_3.5mm_female}{
+	\anchor{center}{\pgfpointorigin}
+	\savedanchor\L{\pgfpoint{0cm}{0cm}}
+	\anchor{L}{\L}
+	\savedanchor\R{\pgfpoint{0cm}{-0.65cm}}
+	\anchor{R}{\R}
+	\savedanchor\G{\pgfpoint{1.375cm}{-0.75cm}}
+	\anchor{G}{\G}
+	\foregroundpath{
+		% Left connection
+		\pgfpathmoveto{\pgfpoint{0cm}{0cm}}
+		\pgfpathlineto{\pgfpoint{0.75cm}{0cm}}
+		\pgfpathlineto{\pgfpoint{0.9cm}{-0.15cm}}
+		\pgfpathlineto{\pgfpoint{1.05cm}{0cm}}
+		\pgfusepath{draw}
+		% Right connection
+		\pgfpathmoveto{\pgfpoint{0cm}{-0.65cm}}
+		\pgfpathlineto{\pgfpoint{0.4cm}{-0.65cm}}
+		\pgfpathlineto{\pgfpoint{0.55cm}{-0.5cm}}
+		\pgfpathlineto{\pgfpoint{0.7cm}{-0.65cm}}
+		\pgfusepath{draw}
+		% GND connection
+		\pgfsetfillcolor{darkgray}
+		\pgfpathrectanglecorners{\pgfpoint{1.25cm}{0.1cm}}{\pgfpoint{1.5cm}{-0.75cm}}
+		\pgfusepath{fill}
+		% GND connection
+		\pgfpathrectanglecorners{\pgfpoint{0cm}{0.2cm}}{\pgfpoint{1.6cm}{-0.85cm}}
+		\pgfsetdash{{0.1cm}{0.1cm}}{0cm}
+		\pgfusepath{draw}
+	}
+}
+
+\pgfdeclareshape{mic_electret}{
+	\anchor{center}{\pgfpointorigin}
+	\savedanchor\G{\pgfpoint{+18mm}{-18mm}}
+	\anchor{G}{\G}
+	\savedanchor\O{\pgfpoint{+18mm}{+23mm}}
+	\anchor{O}{\O}
+	\foregroundpath{
+		% Microphone draw
+		\pgfpathcircle{\pgfpoint{0mm}{0cm}}{5mm}
+		\pgfusepath{draw}
+		\pgfpathmoveto{\pgfpoint{-3mm}{-1.5mm}}
+		\pgfpathlineto{\pgfpoint{+3mm}{-1.5mm}}
+		\pgfusepath{draw}
+		\pgfpathmoveto{\pgfpoint{-3mm}{+1.5mm}}
+		\pgfpathlineto{\pgfpoint{+3mm}{+1.5mm}}
+		\pgfusepath{draw}
+		\pgfpathmoveto{\pgfpoint{-5mm}{-5mm}}
+		\pgfpathlineto{\pgfpoint{-5mm}{+5mm}}
+		\pgfusepath{draw}
+		\pgfpathmoveto{\pgfpoint{+0mm}{+5mm}}
+		\pgfpathlineto{\pgfpoint{+0mm}{+12mm}}
+		\pgfusepath{draw}
+		\pgfpathmoveto{\pgfpoint{+0mm}{-5mm}}
+		\pgfpathlineto{\pgfpoint{+0mm}{-12mm}}
+		\pgfusepath{draw}
+		% JFET (pre amp)
+		\pgfsetarrowsend{latex}
+		\pgfpathmoveto{\pgfpoint{+0mm}{+12mm}}
+		\pgfpathlineto{\pgfpoint{+12mm}{+12mm}}
+		\pgfusepath{draw}
+		\pgfsetarrowsend{}
+		\pgfpathmoveto{\pgfpoint{+12mm}{+16mm}}
+		\pgfpathlineto{\pgfpoint{+12mm}{+8mm}}
+		\pgfusepath{draw}
+		\pgfpathmoveto{\pgfpoint{+12mm}{+15mm}}
+		\pgfpathlineto{\pgfpoint{+18mm}{+15mm}}
+		\pgfusepath{draw}
+		\pgfpathmoveto{\pgfpoint{+18mm}{+14mm}}
+		\pgfpathlineto{\pgfpoint{+18mm}{+18mm}}
+		\pgfusepath{draw}
+		\pgfpathmoveto{\pgfpoint{+18mm}{+17mm}}
+		\pgfpathlineto{\pgfpoint{+18mm}{+23mm}}
+		\pgfusepath{draw}
+		\pgfpathmoveto{\pgfpoint{+12mm}{+9mm}}
+		\pgfpathlineto{\pgfpoint{+18mm}{+9mm}}
+		\pgfusepath{draw}
+		\pgfpathmoveto{\pgfpoint{+18mm}{+10mm}}
+		\pgfpathlineto{\pgfpoint{+18mm}{-12mm}}
+		\pgfusepath{draw}
+		\pgfpathmoveto{\pgfpoint{+0mm}{+12mm}}
+		\pgfpathlineto{\pgfpoint{+12mm}{+12mm}}
+		\pgfusepath{draw}
+		\pgfpathmoveto{\pgfpoint{+0mm}{-12mm}}
+		\pgfpathlineto{\pgfpoint{+18mm}{-12mm}}
+		\pgfusepath{draw}
+		\pgfpathmoveto{\pgfpoint{+18mm}{-12mm}}
+		\pgfpathlineto{\pgfpoint{+18mm}{-18mm}}
+		\pgfusepath{draw}
+		% Net dot
+		\pgfpathcircle{\pgfpoint{18mm}{-12mm}}{0.75mm}
+		\pgfusepath{fill}
+		% Stroke box
+		\pgfpathrectanglecorners{\pgfpoint{-8mm}{-15mm}}{\pgfpoint{21mm}{19mm}}
+		\pgfsetdash{{0.1cm}{0.1cm}}{0cm}
+		\pgfusepath{draw}
+	}
+}
+
+\pgfdeclareshape{speaker}{
+	\anchor{center}{\pgfpointorigin}
+	\savedanchor\A{\pgfpoint{1.5mm}{6mm}}
+	\anchor{A}{\A}
+	\savedanchor\G{\pgfpoint{1.5mm}{-6mm}}
+	\anchor{G}{\G}
+	\foregroundpath{
+		% Squared part
+		\pgfpathrectanglecorners{\pgfpoint{0mm}{3mm}}{\pgfpoint{3mm}{-3mm}}
+		\pgfusepath{draw}
+		% Diaphragm
+		\pgfpathmoveto{\pgfpoint{+3mm}{-3mm}}
+		\pgfpathlineto{\pgfpoint{+7mm}{-7mm}}
+		\pgfpathlineto{\pgfpoint{+7mm}{+7mm}}
+		\pgfpathlineto{\pgfpoint{+3mm}{+3mm}}
+		\pgfusepath{draw}
+		% Connect
+		\pgfpathmoveto{\pgfpoint{+1.5mm}{+6mm}}
+		\pgfpathlineto{\pgfpoint{+1.5mm}{+3mm}}
+		\pgfpathmoveto{\pgfpoint{+1.5mm}{-6mm}}
+		\pgfpathlineto{\pgfpoint{+1.5mm}{-3mm}}
+		\pgfusepath{draw}
+	}
+}
+
+\pgfdeclareshape{jack_3.5mm_male}{
+	\anchor{center}{\pgfpointorigin}
+	\savedanchor\L{\pgfpoint{2.5mm}{-1.75mm}}
+	\anchor{L}{\L}
+	\savedanchor\R{\pgfpoint{6.825mm}{-1.75mm}}
+	\anchor{R}{\R}
+	\savedanchor\G{\pgfpoint{11.15mm}{-1.75mm}}
+	\anchor{G}{\G}
+	\foregroundpath{
+		% Tip
+		\pgfpathmoveto{\pgfpoint{+4.8mm}{-1.6mm}}
+		\pgfpathlineto{\pgfpoint{+4.375mm}{-1.6mm}}
+		\pgfpathlineto{\pgfpoint{+4mm}{-1.25mm}}
+		\pgfpathlineto{\pgfpoint{+1mm}{-1.5mm}}
+		\pgfpathlineto{\pgfpoint{+0mm}{-0.5mm}}
+		\pgfpathlineto{\pgfpoint{+0mm}{+0.5mm}}
+		\pgfpathlineto{\pgfpoint{+1mm}{+1.5mm}}
+		\pgfpathlineto{\pgfpoint{+4mm}{+1.25mm}}
+		\pgfpathlineto{\pgfpoint{+4.375mm}{+1.6mm}}
+		\pgfpathlineto{\pgfpoint{+4.8mm}{+1.6mm}}
+		\pgfusepath{draw}
+		\pgfsetfillcolor{darkgray}
+		\pgfpathrectanglecorners{\pgfpoint{+4.8mm}{-1.6mm}}{\pgfpoint{+5.5mm}{+1.6mm}}
+		\pgfusepath{fill}
+		% Ring
+		\pgfpathmoveto{\pgfpoint{+5.5mm}{+1.6mm}}
+		\pgfpathlineto{\pgfpoint{+5.8mm}{+1.75mm}}
+		\pgfpathlineto{\pgfpoint{+7.85mm}{+1.75mm}}
+		\pgfpathmoveto{\pgfpoint{+5.5mm}{-1.6mm}}
+		\pgfpathlineto{\pgfpoint{+5.8mm}{-1.75mm}}
+		\pgfpathlineto{\pgfpoint{+7.85mm}{-1.75mm}}
+		\pgfusepath{draw}
+		\pgfsetfillcolor{darkgray}
+		\pgfpathrectanglecorners{\pgfpoint{+7.85mm}{-1.75mm}}{\pgfpoint{+8.55mm}{+1.75mm}}
+		\pgfusepath{fill}
+		% Sleeve
+		\pgfpathmoveto{\pgfpoint{+8.55mm}{+1.75mm}}
+		\pgfpathlineto{\pgfpoint{+14mm}{+1.75mm}}
+		\pgfpathmoveto{\pgfpoint{+8.55mm}{-1.75mm}}
+		\pgfpathlineto{\pgfpoint{+14mm}{-1.75mm}}
+		\pgfusepath{draw}
+		% Plug
+		\pgfpathmoveto{\pgfpoint{+18mm}{+2.5mm}}
+		\pgfpathlineto{\pgfpoint{+14mm}{+2.5mm}}
+		\pgfpathlineto{\pgfpoint{+14mm}{-2.5mm}}
+		\pgfpathlineto{\pgfpoint{+18mm}{-2.5mm}}
+		\pgfusepath{draw}
+	}
+}
